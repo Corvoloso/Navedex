@@ -1,13 +1,12 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
-  margin-bottom: 4px;
-`;
+export const Container = styled.View``;
 
 export const Title = styled.Text`
   font-family: 'Montserrat-SemiBold';
   font-size: 14px;
   line-height: 18px;
+  margin-bottom: 4px;
 `;
 
 export const TextInput = styled.TextInput`
@@ -15,7 +14,6 @@ export const TextInput = styled.TextInput`
   font-size: 16px;
   font-family: 'Montserrat-Regular';
   border-width: 1px;
-  border-radius: 8px;
+  border-radius: 4px;
   padding: 8px;
-  margin-top: 8px;
 `;

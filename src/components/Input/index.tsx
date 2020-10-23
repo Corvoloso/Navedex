@@ -6,14 +6,20 @@ import { Container, Title, TextInput } from './styles';
 
 interface InputProps extends TextInputProps {
   name: string;
-  title: string;
+  title?: string;
+  containerStyle?: {};
 }
 
 interface InputValueReference {
   value: string;
 }
 
-const Input: React.FC<InputProps> = ({ name, title, ...rest }) => {
+const Input: React.FC<InputProps> = ({
+  name,
+  title,
+  containerStyle = {},
+  ...rest
+}) => {
   const { registerField, defaultValue = '', fieldName, error } = useField(name);
   const inputElementRef = useRef<any>(null);
   const inputValueRef = useRef<InputValueReference>({ value: defaultValue });
@@ -27,7 +33,7 @@ const Input: React.FC<InputProps> = ({ name, title, ...rest }) => {
   }, [registerField, fieldName, inputValueRef]);
 
   return (
-    <Container>
+    <Container style={containerStyle}>
       <Title>{title}</Title>
 
       <TextInput

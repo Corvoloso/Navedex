@@ -1,21 +1,29 @@
 import React, { useCallback, useRef } from 'react';
-import { useNavigation } from '@react-navigation/native';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
 
 import Input from '../../components/Input';
+import Button from '../../components/Button';
 
 import { Container, Title, TitleContainer } from './styles';
-import Button from '../../components/Button';
+import { useAuth } from '../../hooks/auth';
+
+interface SingInProps {
+  email: string;
+  password: string;
+}
 
 const SignIn: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
-  const { navigate } = useNavigation();
 
-  const handleSignInSubmit = useCallback((data) => {
-    console.log(data);
+  const { signIn } = useAuth();
 
-    navigate('Dashboard');
+  const handleSignInSubmit = useCallback(async (data: SingInProps) => {
+    try {
+      signIn(data);
+    } catch (err) {
+      console.log(err);
+    }
   }, []);
 
   return (
@@ -26,9 +34,19 @@ const SignIn: React.FC = () => {
 
       <Form ref={formRef} onSubmit={handleSignInSubmit}>
         <Input name="email" title="E-mail" placeholder="E-mail" />
-        <Input name="password" title="Senha" placeholder="Senha" />
+        <Input
+          name="password"
+          title="Senha"
+          placeholder="Senha"
+          secureTextEntry
+          containerStyle={{ marginTop: 40 }}
+        />
 
-        <Button onPress={() => formRef.current?.submitForm()}>Entrar</Button>
+        <Button
+          onPress={() => formRef.current?.submitForm()}
+          style={{ marginTop: 40 }}>
+          Entrar
+        </Button>
       </Form>
     </Container>
   );

@@ -5,6 +5,7 @@ export const Container = styled(RectButton)`
   background-color: #212121;
   justify-content: center;
   align-items: center;
+  border-radius: 4px;
 `;
 
 export const ButtonText = styled.Text`

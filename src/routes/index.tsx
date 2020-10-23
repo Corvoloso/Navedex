@@ -1,23 +1,13 @@
 import React from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
+import { useAuth } from '../hooks/auth';
 
-import SignIn from '../pages/SignIn';
-import Dashboard from '../pages/Dashboard';
+import AuthStack from './auth.routes';
+import AppStack from './app.routes';
 
 const Routes: React.FC = () => {
-  const { Screen, Navigator } = createStackNavigator();
+  const { user } = useAuth();
 
-  return (
-    <NavigationContainer>
-      <Navigator
-        initialRouteName="SignIn"
-        screenOptions={{ headerShown: false }}>
-        <Screen name="SignIn" component={SignIn} />
-        <Screen name="Dashboard" component={Dashboard} />
-      </Navigator>
-    </NavigationContainer>
-  );
+  return user ? <AppStack /> : <AuthStack />;
 };
 
 export default Routes;

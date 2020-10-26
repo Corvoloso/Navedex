@@ -14,8 +14,11 @@ Seguindo os requisitos, esse desáfio integra uma API numa interface front-end.
 A criação, deleção e atualização de usuário é possível ao utilizar um usuário cadastrado posteriormente via Postman.
 
 Caso seja do seu interesse particular, para explorar o App utilize o seguinte usuário/senha:
->! Usuário: corvoloso@nave.rs <br/>
->! Senha: 123456
+
+```
+  Usuário: corvoloso@nave.rs <br/>
+  Senha: 123456
+```
 
 ## 🚀 Como usar
 Para fazer uso do projeto se é presumido a instalação de tecnologias como o React Native e um emulador/simulador da preferência do usuário.

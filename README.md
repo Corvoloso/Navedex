@@ -66,6 +66,7 @@ $ yarn start
 
 ## 🤯 Dificuldades
 - **Drawer** - Aplicar o Drawer com o React Navigation se tornou complicado, acabei optando por utilizar a Stack Navigation para o AppStack, a qual estou mais familiarizado. Optei pela agilidade enquanto desenvolvendo.
+- **Async Storage** - Para manter o usuario logado a utilização do Async Storage era uma boa opção, eu planejava aplicar no hook de SignIn, por tempo não consegui fazer essa feature, porém é algo essencial que eu planejo colocar!
 
 <p> Made with 🖤 by Igor Bezerra</p>
 

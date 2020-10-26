@@ -33,7 +33,7 @@ const Input: React.FC<InputProps> = ({
   }, [registerField, fieldName, inputValueRef]);
 
   return (
-    <Container style={containerStyle}>
+    <Container>
       <Title>{title}</Title>
 
       <TextInput
@@ -41,6 +41,7 @@ const Input: React.FC<InputProps> = ({
         onChangeText={(value) => {
           inputValueRef.current.value = value;
         }}
+        defaultValue={defaultValue}
         {...rest}
       />
     </Container>

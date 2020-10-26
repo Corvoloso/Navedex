@@ -7,6 +7,7 @@ export const Title = styled.Text`
   font-size: 14px;
   line-height: 18px;
   margin-bottom: 4px;
+  margin-top: 24px;
 `;
 
 export const TextInput = styled.TextInput`

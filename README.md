@@ -19,7 +19,9 @@ Caso seja do seu interesse particular, para explorar o App utilize o seguinte us
 > Senha: 123456
 
 ## 🚀 Como usar
-Para fazer uso do projeto se é presumido a instalação de tecnologias como o React Native e um emulador/simulador da preferência do usuário.
+Para fazer uso do projeto se é presumido a instalação de tecnologias como
+[React Native](https://reactnative.dev/),
+[node](https://nodejs.org/en/)/[yarn](https://yarnpkg.com/) e um emulador/simulador da preferência do usuário.
 
 **Clonar e Atualizar**
 
@@ -33,11 +35,33 @@ Após clonado as dependências do app precisam ser atualizadas, simplesmente rod
 
 ```bash
 $ yarn
+# ou
+$ npm install
+```
+
+**IOS**
+
+Caso esteja utilizando um simulador IOS um passo extra é adicionado, a instalação dos pods na pasta ./ios.
+
+```bash
+$ npx pod-install ios
 ```
 
 **Rodando o App 📱**
 
+Com um emulador ou simulador instalado rode os seguintes comandos
 ```bash
+# IOS
+$ yarn ios
+
+# ANDROID
+$ yarn android
+```
+
+E após isso, com o App já instalado no seu dispositivo emulado. Inicie a aplicação
+
+```bash
+$ yarn start
 ```
 
 ## 🤯 Dificuldades

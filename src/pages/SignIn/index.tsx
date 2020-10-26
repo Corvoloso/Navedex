@@ -1,12 +1,15 @@
 import React, { useCallback, useRef } from 'react';
 import { Form } from '@unform/mobile';
 import { FormHandles } from '@unform/core';
+import { KeyboardAvoidingView, Platform, ScrollView } from 'react-native';
+import { useAuth } from '../../hooks/auth';
 
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Title, TitleContainer } from './styles';
-import { useAuth } from '../../hooks/auth';
+import logoImg from '../../assets/logoImg.png';
+
+import { Container, TitleContainer, Image } from './styles';
 
 interface SingInProps {
   email: string;
@@ -27,28 +30,39 @@ const SignIn: React.FC = () => {
   }, []);
 
   return (
-    <Container>
-      <TitleContainer>
-        <Title>NAVE.RS</Title>
-      </TitleContainer>
+    <KeyboardAvoidingView
+      style={{
+        flex: 1,
+      }}
+      behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+      enabled>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={{ flex: 1 }}>
+        <Container>
+          <TitleContainer>
+            <Image source={logoImg} />
+          </TitleContainer>
 
-      <Form ref={formRef} onSubmit={handleSignInSubmit}>
-        <Input name="email" title="E-mail" placeholder="E-mail" />
-        <Input
-          name="password"
-          title="Senha"
-          placeholder="Senha"
-          secureTextEntry
-          containerStyle={{ marginTop: 40 }}
-        />
+          <Form ref={formRef} onSubmit={handleSignInSubmit}>
+            <Input name="email" title="E-mail" placeholder="E-mail" />
+            <Input
+              name="password"
+              title="Senha"
+              placeholder="Senha"
+              secureTextEntry
+              containerStyle={{ marginTop: 40 }}
+            />
 
-        <Button
-          onPress={() => formRef.current?.submitForm()}
-          style={{ marginTop: 40 }}>
-          Entrar
-        </Button>
-      </Form>
-    </Container>
+            <Button
+              onPress={() => formRef.current?.submitForm()}
+              style={{ marginTop: 40 }}>
+              Entrar
+            </Button>
+          </Form>
+        </Container>
+      </ScrollView>
+    </KeyboardAvoidingView>
   );
 };
 

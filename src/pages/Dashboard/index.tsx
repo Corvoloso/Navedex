@@ -63,18 +63,22 @@ const Dashboard: React.FC = () => {
 
   useEffect(() => {
     async function loadProfiles(): Promise<void> {
-      const response = await api.get('/navers');
+      try {
+        const response = await api.get('/navers');
 
-      const newProfiles = response.data.map((profile: Profile) => ({
-        ...profile,
-        admission_date: format(
-          new Date(profile.admission_date),
-          `dd'/'MM'/'yyyy`,
-        ),
-        birthdate: format(new Date(profile.birthdate), `dd'/'MM'/'yyyy`),
-      }));
+        const newProfiles = response.data.map((profile: Profile) => ({
+          ...profile,
+          admission_date: format(
+            new Date(profile.admission_date),
+            `dd'/'MM'/'yyyy`,
+          ),
+          birthdate: format(new Date(profile.birthdate), `dd'/'MM'/'yyyy`),
+        }));
 
-      setProfiles(newProfiles);
+        setProfiles(newProfiles);
+      } catch {
+        setProfiles([]);
+      }
     }
 
     loadProfiles();

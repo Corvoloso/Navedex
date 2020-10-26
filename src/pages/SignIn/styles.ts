@@ -7,13 +7,12 @@ export const Container = styled.View`
 `;
 
 export const TitleContainer = styled.View`
-  flex-direction: row;
+  flex: 0.15;
   align-self: center;
-  margin: 0 0 56px;
 `;
 
-export const Title = styled.Text`
-  font-family: 'Montserrat-Regular';
-  font-size: 42px;
-  color: #212121;
+export const Image = styled.Image`
+  flex: 1;
+  align-self: center;
+  resize-mode: contain;
 `;

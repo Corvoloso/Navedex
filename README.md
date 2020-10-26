@@ -65,6 +65,7 @@ $ yarn start
 ```
 
 ## 🤯 Dificuldades
+- **Drawer** - Aplicar o Drawer com o React Navigation se tornou complicado, acabei optando por utilizar a Stack Navigation para o AppStack, a qual estou mais familiarizado. Optei pela agilidade enquanto desenvolvendo.
 
 <p> Made with 🖤 by Igor Bezerra</p>
 
